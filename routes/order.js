@@ -8,15 +8,15 @@ const router = express.Router();
 
 //auth here cause of 
 router.post("/", auth, async (req, res) => {
-    const { itemId } = req.body; 
+    const {itemname} = req.body; 
     const userId = req.user._id; //here to get the number is of the user that making this function 
 
-    if (!itemId) {
-        return res.status(400).json({ message: "Item ID is required." });
+    if (!itemname) {
+        return res.status(400).json({ message: "the item name is required." });
     }
 
     try {
-        const item = await Item.findById(itemId);
+      const item = await Item.findOne({ name: itemname });
         if (!item) {
             return res.status(404).json({ message: "Item not found." });
         }
@@ -27,7 +27,7 @@ router.post("/", auth, async (req, res) => {
 
         const newOrder = new Order({
             user: userId,
-            item: itemId,
+            item: item._id,
         });
         await newOrder.save(); //saving the order in the data base
 
