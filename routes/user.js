@@ -4,6 +4,16 @@ const User = require('../models/user')
 const auth = require('../middleware/auth');
 
 
+router.get('/', async (req, res) => {
+  try {
+      const users = await User.find({}, '-password'); 
+      res.status(200).json(users);
+  } catch (error) {
+      console.error("Error fetching all users:", error);
+      res.status(500).json({ message: "Failed to fetch users", error: error.message });
+  }
+});
+
 router.get('/profile', auth, (req, res) => {
   res.json({ message: 'Welcome, authenticated user!', user: req.user });
 });
