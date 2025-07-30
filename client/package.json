@@ -1,5 +1,5 @@
 {
-  "name": "pulse-and-plate",
+  "name": "pulse-and-plate-client",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -12,19 +12,8 @@
     "@testing-library/react": "^16.3.0",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.9.0",
-    "bcrypt": "^5.1.1",
-    "bcryptjs": "^3.0.2",
-    "body-parser": "^2.2.0",
     "bootstrap": "^5.3.5",
-    "cors": "^2.8.5",
-    "dotenv": "^16.5.0",
-    "express": "^5.1.0",
     "formik": "^2.4.6",
-    "jsonwebtoken": "^9.0.2",
-    "mongoose": "^8.14.3",
-    "morgan": "^1.10.0",
-    "prettier": "^3.5.3",
-    "reacharts": "^0.4.5",
     "react": "^19.1.0",
     "react-bootstrap": "^2.10.9",
     "react-dom": "^19.1.0",
@@ -32,8 +21,6 @@
     "react-router-dom": "^7.5.3",
     "react-scripts": "5.0.1",
     "recharts": "^2.15.3",
-    "swagger-jsdoc": "^6.2.8",
-    "swagger-ui-express": "^5.0.1",
     "web-vitals": "^2.1.4",
     "yup": "^1.6.1"
   },
@@ -42,12 +29,6 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
   },
   "browserslist": {
     "production": [
@@ -60,8 +41,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "nodemon": "^3.1.10"
   }
 }
