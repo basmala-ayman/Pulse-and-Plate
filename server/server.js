@@ -16,12 +16,8 @@ const MONGO_URI = process.env.MONGODB_URI;
 const app = express();
 
 // app.use(cors());
-const allowedOrigins = [
-  'http://localhost:3000',
-  'https://pulse-and-plate.onrender.com'
-];
 app.use(cors({
-  origin: allowedOrigins,
+  origin: 'https://pulse-and-plate.vercel.app',
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   credentials: true
 }));
