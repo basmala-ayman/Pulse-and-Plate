@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
 const express = require('express');
 const cors = require('cors');
-const path = require('path');
 require('dotenv').config(); // Load environment variables from .env
 
 const { swaggerUi, swaggerSpec } = require('./swagger');
@@ -50,6 +49,3 @@ mongoose.connect(MONGO_URI, {
   .catch((error) => {
     console.error(' Failed to connect to MongoDB Atlas:', error.message);
   });
-
-// Export the app for Vercel
-module.exports = app;

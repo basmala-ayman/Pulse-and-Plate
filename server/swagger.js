@@ -14,7 +14,7 @@ const options = {
     },
     servers: [
       {
-        url: `${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}`,
+        url: `http://localhost:${process.env.PORT || 3050}`, // Use the PORT from .env or default to 305
         description: "Local server",
       },
     ],
