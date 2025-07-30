@@ -50,3 +50,6 @@ mongoose.connect(MONGO_URI, {
   .catch((error) => {
     console.error(' Failed to connect to MongoDB Atlas:', error.message);
   });
+
+// Export the app for Vercel
+module.exports = app;
