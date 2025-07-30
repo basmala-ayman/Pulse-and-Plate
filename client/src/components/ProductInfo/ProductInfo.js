@@ -32,7 +32,7 @@ const ProductInfo = () => {
 
     try {
       // Fetch the current cart items
-      const { data } = await axios.get("http://localhost:3050/api/addorder/myorders", {
+      const { data } = await axios.get(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/addorder/myorders`, {
         headers: { Authorization: `Bearer ${token}` },
       });
 
@@ -44,14 +44,14 @@ const ProductInfo = () => {
       if (existingItem) {
         // If it exists, increase the quantity by 1
         await axios.put(
-          `http://localhost:3050/api/addorder/cart/${existingItem._id}`,
+          `${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/addorder/cart/${existingItem._id}`,
           { quantity: existingItem.quantity + 1 },
           { headers: { Authorization: `Bearer ${token}` } }
         );
       } else {
         // If it doesn't exist, add it as a new item with quantity 1
         await axios.post(
-          "http://localhost:3050/api/addorder",
+          `${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/addorder`,
           { itemname: product.name, quantity: 1 },
           { headers: { Authorization: `Bearer ${token}` } }
         );

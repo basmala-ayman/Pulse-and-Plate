@@ -14,7 +14,7 @@ const options = {
     },
     servers: [
       {
-        url: "http://localhost:3050",
+        url: `${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}`,
         description: "Local server",
       },
     ],
