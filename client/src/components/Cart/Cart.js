@@ -13,7 +13,7 @@ export default function Cart() {
     const token = localStorage.getItem("token");
 
     axios
-      .get("http://localhost:3050/api/addorder/myorders", {
+      .get(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/addorder/myorders`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((res) => {
@@ -30,7 +30,7 @@ export default function Cart() {
     const token = localStorage.getItem("token");
     return axios
       .put(
-        `http://localhost:3050/api/addorder/cart/${itemId}`,
+        `${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/addorder/cart/${itemId}`,
         { quantity: newQuantity },
         { headers: { Authorization: `Bearer ${token}` } }
       )
@@ -70,7 +70,7 @@ export default function Cart() {
     const token = localStorage.getItem("token");
 
     axios
-      .delete(`http://localhost:3050/api/addorder/cart/${itemId}`, {
+      .delete(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/addorder/cart/${itemId}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

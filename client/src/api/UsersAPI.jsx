@@ -1,4 +1,4 @@
-const URL = "http://localhost:3050/api/users";
+const URL = `${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/users`;
 
 const getToken =_=> localStorage.getItem("token");
 

@@ -14,7 +14,7 @@ export default function Categories() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3050/api/product/list")
+      .get(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/product/list`)
       .then((response) => {
         if (
           response.data &&
