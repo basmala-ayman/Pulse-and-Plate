@@ -36,12 +36,6 @@ app.get('/', (req, res) => {
   res.send('API is running...');
 });
 
-// Serve React Build
-app.use(express.static(path.join(__dirname, 'build')));
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'build', 'index.html'));
-});
-
 mongoose.connect(MONGO_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true
