@@ -19,6 +19,7 @@
 ## Features
 
 ### User Features
+
 - User registration & login (JWT authentication)
 - Profile management (name, email)
 - View categorized healthy meals
@@ -26,11 +27,13 @@
 - Place orders
 
 ### Admin Features
+
 - Dashboard with controls for managing meals and orders
 - CRUD operations for user, categories, items
 - View and manage user orders
 
 ### General Features
+
 - Fully responsive design (mobile/tablet/desktop)
 - Form handling with validation (Formik)
 - Navigation with React Router
@@ -40,6 +43,7 @@
 ## Tech Stack
 
 ### Frontend
+
 - React
 - React Router
 - Bootstrap
@@ -47,11 +51,12 @@
 - Formik (form handling)
 
 ### Backend
+
 - Node.js
 - Express.js
 - MongoDB
 - Mongoose
-- dotenv 
+- dotenv
 - Bcrypt (password hashing)
 
 ---
@@ -59,21 +64,23 @@
 # Getting Started
 
 ### Prerequisites
+
 - Node.js & npm
 - MongoDB installed and running
 
 ### Installation
 
 1. Clone the repository:
- ```bash
+
+```bash
 git clone https://github.com/basmala-ayman/Pulse-and-Plate.git
 
- cd Pulse-and-Plate
- ```
+cd Pulse-and-Plate
+```
 
- 2. Install dependencies for both frontend and backend:
+2.  Install dependencies for both frontend and backend:
 
- ```bash
+```bash
 npm install -y
 ```
 
@@ -81,42 +88,49 @@ npm install -y
    ```bash
    MONGODB_URI=mongodb+srv://esraa:esraa@pulseandplasedb.veodylk.mongodb.net/pulseandplateDB?retryWrites=true&w=majority
    ```
-   
 4. Start the application:
- - In one terminal (for frontend):
- ```bash
- npm start
- ```
- - In another terminal (for backend):
- ```bash
- node server.js
- ```
 
- ## Available Scripts
- #### Inside package.json, you can find:
- - `npm start`: Runs the app in development mode
- - `node server.js`: Starts the backend server  
+- In one terminal (for frontend):
 
- ## Usage Guide (For Users)
- 1. Register an account using your name, email, and password
- 2. log in to access your profile and meal options
- 3. Browse meals by category and add items to your cart
- 4. Submit orders 
- 5. Update profile info(name and password)
+```bash
+npm start
+```
 
- ## API and Database
- ### MongoDB Collections
- - Users: Stores user info and encrypted passwords
- - Menus: Has multiple categories
- - Categories: Contains many items
- - Items: Individual meal entries
+- In another terminal (for backend):
 
- ## Contributors
- - [Basmala Ayman](https://github.com/basmala-ayman)
- - [Ruba Abdelsalam](https://github.com/Rrr3rrr2004)
- - [Habiba Adel](https://github.com/Habiba-Adel)
- - [Zeina Wady](https://github.com/zeinawady)
- - [Hafsa Tarek](https://github.com/HafsaTarek)
- - [Esraa Ahmed](https://github.com/2004esra)
+```bash
+node server.js
+```
 
+## Available Scripts
 
+#### Inside package.json, you can find:
+
+- `npm start`: Runs the app in development mode
+- `node server.js`: Starts the backend server
+
+## Usage Guide (For Users)
+
+1.  Register an account using your name, email, and password
+2.  log in to access your profile and meal options
+3.  Browse meals by category and add items to your cart
+4.  Submit orders
+5.  Update profile info(name and password)
+
+## API and Database
+
+### MongoDB Collections
+
+- Users: Stores user info and encrypted passwords
+- Menus: Has multiple categories
+- Categories: Contains many items
+- Items: Individual meal entries
+
+## Contributors
+
+- [Basmala Ayman](https://github.com/basmala-ayman)
+- [Ruba Abdelsalam](https://github.com/Rrr3rrr2004)
+- [Habiba Adel](https://github.com/Habiba-Adel)
+- [Zeina Wady](https://github.com/zeinawady)
+- [Hafsa Tarek](https://github.com/HafsaTarek)
+- [Esraa Ahmed](https://github.com/2004esra)

@@ -12,8 +12,8 @@ const ProductInfo = () => {
     return <div className="product-info-container">No product available.</div>;
   }
 
-    console.log("Product:", product);
-    console.log("AvailableCounter:", product.quantity);
+  console.log("Product:", product);
+  console.log("AvailableCounter:", product.quantity);
   const availability = (product.quantity && product.quantity > 0) ? "In Stock" : "Out of Stock";
 
   const handleAddToCart = async () => {
@@ -32,7 +32,7 @@ const ProductInfo = () => {
 
     try {
       // Fetch the current cart items
-      const { data } = await axios.get(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/addorder/myorders`, {
+      const { data } = await axios.get(`${process.env.REACT_APP_API_URL}/api/addorder/myorders`, {
         headers: { Authorization: `Bearer ${token}` },
       });
 
@@ -44,14 +44,14 @@ const ProductInfo = () => {
       if (existingItem) {
         // If it exists, increase the quantity by 1
         await axios.put(
-          `${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/addorder/cart/${existingItem._id}`,
+          `${process.env.REACT_APP_API_URL}/api/addorder/cart/${existingItem._id}`,
           { quantity: existingItem.quantity + 1 },
           { headers: { Authorization: `Bearer ${token}` } }
         );
       } else {
         // If it doesn't exist, add it as a new item with quantity 1
         await axios.post(
-          `${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/addorder`,
+          `${process.env.REACT_APP_API_URL}/api/addorder`,
           { itemname: product.name, quantity: 1 },
           { headers: { Authorization: `Bearer ${token}` } }
         );

@@ -1,6 +1,6 @@
-const URL = `${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/users`;
+const URL = `${process.env.REACT_APP_API_URL}/api/users`;
 
-const getToken =_=> localStorage.getItem("token");
+const getToken = (_) => localStorage.getItem("token");
 
 const getAuthHeaders = () => ({
   "Content-Type": "application/json",

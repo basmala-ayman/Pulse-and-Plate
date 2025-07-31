@@ -20,7 +20,7 @@ export default function PaymentModal({ onClose, total, cartItems, onClearCart })
       // You can POST the order to an endpoint if needed
 
       // Now clear the cart from the backend
-      await axios.delete(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/addorder/clearcart`, {
+      await axios.delete(`${process.env.REACT_APP_API_URL}/api/addorder/clearcart`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

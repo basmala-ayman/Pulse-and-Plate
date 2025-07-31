@@ -13,57 +13,57 @@ export default function MealCard({ meal }) {
     setIsFavorited(!isFavorited);
   };
 
- const handleAddToCart = async () => {
-  const token = localStorage.getItem("token");
+  const handleAddToCart = async () => {
+    const token = localStorage.getItem("token");
 
-  if (!token) {
-    alert("You must be logged in to add items to the cart.");
-    navigate("/login");
-    return;
-  }
-
-  try {
-    const { data } = await axios.get(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/addorder/myorders`, {
-      headers: { Authorization: `Bearer ${token}` },
-    });
-
-    const cart = data.cart || [];
-    // Just check if the item is added before
-    const existingItem = cart.find(item => item.name === meal.name);
-
-    if (existingItem) {
-      //if it's just update the quantity
-      await axios.put(
-        `${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/addorder/cart/${existingItem._id}`,
-        { quantity: existingItem.quantity + 1 },
-        { headers: { Authorization: `Bearer ${token}` } }
-      );
-    } else {
-      // and if not add it 
-      await axios.post(
-        `${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/addorder`,
-        {
-          itemname: meal.name,
-          quantity: 1,
-        },
-        { headers: { Authorization: `Bearer ${token}` } }
-      );
-    }
-
-    alert("Item added to cart!");
-  } catch (err) {
-    console.error("Add to cart error:", err.response?.data || err.message);
-
-    if (err.response?.status === 401) {
-      alert("Session expired. Please log in again.");
+    if (!token) {
+      alert("You must be logged in to add items to the cart.");
       navigate("/login");
-    } else {
-      alert(
-        "Failed to add item to cart:\n" + (err.response?.data?.message || err.message)
-      );
+      return;
     }
-  }
-};
+
+    try {
+      const { data } = await axios.get(`${process.env.REACT_APP_API_URL}/api/addorder/myorders`, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+
+      const cart = data.cart || [];
+      // Just check if the item is added before
+      const existingItem = cart.find(item => item.name === meal.name);
+
+      if (existingItem) {
+        //if it's just update the quantity
+        await axios.put(
+          `${process.env.REACT_APP_API_URL}/api/addorder/cart/${existingItem._id}`,
+          { quantity: existingItem.quantity + 1 },
+          { headers: { Authorization: `Bearer ${token}` } }
+        );
+      } else {
+        // and if not add it 
+        await axios.post(
+          `${process.env.REACT_APP_API_URL}/api/addorder`,
+          {
+            itemname: meal.name,
+            quantity: 1,
+          },
+          { headers: { Authorization: `Bearer ${token}` } }
+        );
+      }
+
+      alert("Item added to cart!");
+    } catch (err) {
+      console.error("Add to cart error:", err.response?.data || err.message);
+
+      if (err.response?.status === 401) {
+        alert("Session expired. Please log in again.");
+        navigate("/login");
+      } else {
+        alert(
+          "Failed to add item to cart:\n" + (err.response?.data?.message || err.message)
+        );
+      }
+    }
+  };
 
   const handleViewDetails = () => {
     navigate('/product-info', { state: { product: meal } });
@@ -87,9 +87,8 @@ export default function MealCard({ meal }) {
           </button>
         </div>
         <div
-          className={`fav-icon position-absolute top-0 end-0 p-2 ${
-            isFavorited ? "favorited" : ""
-          }`}
+          className={`fav-icon position-absolute top-0 end-0 p-2 ${isFavorited ? "favorited" : ""
+            }`}
           onClick={toggleFavorite}
           style={{ cursor: "pointer", fontSize: "1.5rem" }}
         >

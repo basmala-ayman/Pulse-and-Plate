@@ -14,7 +14,7 @@ export default function Categories() {
 
   useEffect(() => {
     axios
-      .get(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/product/list`)
+      .get(`${process.env.REACT_APP_API_URL}/api/product/list`)
       .then((response) => {
         if (
           response.data &&
@@ -39,7 +39,7 @@ export default function Categories() {
         console.error("There was an error while fetching the menu: ", error);
       })
       .finally(() => setLoading(false));
-  }, []); 
+  }, []);
 
 
   useEffect(() => {
@@ -76,9 +76,8 @@ export default function Categories() {
           categories.map((category, index) => (
             <div
               key={index}
-              className={`col-6 col-sm-4 col-md-3 text-center category-title ${
-                activeCategory === index ? "active" : ""
-              }`}
+              className={`col-6 col-sm-4 col-md-3 text-center category-title ${activeCategory === index ? "active" : ""
+                }`}
               onClick={() => handleCategoryClick(index)}
               style={{ cursor: "pointer" }}
             >
@@ -90,8 +89,8 @@ export default function Categories() {
 
       <div className="meal-cards-container" ref={mealsRef}>
         {activeCategory !== null &&
-        categories[activeCategory] &&
-        categories[activeCategory].meals ? (
+          categories[activeCategory] &&
+          categories[activeCategory].meals ? (
           <div className="meals-grid">
             {categories[activeCategory].meals.map((meal, i) => (
               <MealCard key={i} meal={meal} />
