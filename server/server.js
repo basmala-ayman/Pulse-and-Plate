@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
 const express = require('express');
 const cors = require('cors');
-require('dotenv').config(); // Load environment variables from .env
-
+//require('dotenv').config(); // Load environment variables from .env
+const dotenv = require("dotenv");
 const { swaggerUi, swaggerSpec } = require('./swagger');
 
 const userRoutes = require('./routes/user');
