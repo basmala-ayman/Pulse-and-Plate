@@ -22,7 +22,7 @@ if (process.env.NODE_ENV !== "production") {
 }
 
 const corsConfig = {
-  origin: process.env.ClIENT_URL,
+  origin: process.env.CLIENT_URL,
   credentials: true,
   method: ["GET", "POST", "PUT", "DELETE"],
 };
