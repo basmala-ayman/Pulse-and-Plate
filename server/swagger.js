@@ -14,7 +14,7 @@ const options = {
     },
     servers: [
       {
-        url: `http://localhost:${process.env.PORT || 3050}`, // Use the PORT from .env or default to 305
+        url: `http://localhost:${process.env.PORT || 3050}`, // Use the PORT from .env or default to 3050
         description: "Local server",
       },
     ],

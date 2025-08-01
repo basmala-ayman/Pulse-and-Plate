@@ -2,7 +2,6 @@ import React from "react";
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
 
-
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import Home from "./components/Home/Home";
@@ -13,7 +12,6 @@ import Login from "./components/Login/Login";
 import SignUp from "./components/SignUp/SignUp";
 import UserProfile from "./components/UserProfile/UserProfile";
 import ProductInfo from "./components/ProductInfo/ProductInfo";
-import PaymentPage from "./components/PaymentModal/PaymentModal";
 import Dashboard from "./components/Dashboard/Dashboard";
 import Cart from "./components/Cart/Cart";
 import AddMeal from "./components/AddMeal/AddMeal";

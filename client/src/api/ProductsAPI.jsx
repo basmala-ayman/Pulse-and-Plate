@@ -1,4 +1,4 @@
-const URL = `${process.env.REACT_APP_API_URL}/product/api/product`;
+const URL = `${process.env.REACT_APP_API_URL}/api/product`;
 
 const getToken = (_) => localStorage.getItem("token");
 
