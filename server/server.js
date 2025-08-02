@@ -28,7 +28,7 @@ cloudinary.config({
 
 // ✅ CORS Setup
 const corsConfig = {
-  origin: process.env.CLIENT_URL,
+  origin: "https://pulse-and-plate.vercel.app",
   credentials: true,
   methods: ["GET", "POST", "PUT", "DELETE"],
 };
