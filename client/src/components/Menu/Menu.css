@@ -189,25 +189,49 @@
   background-color: var(--secondary-color);
 }
 
+/* Tablet screens (768px to 991px) */
+@media (max-width: 991px) {
+  .meals-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 cards per row */
+  }
+}
+
+
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
+  .meals-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* One card per row */
+    gap: 16px;
+    justify-items: center; 
+  }
+
   .meal-card {
-    width: 180px;
-    padding: 12px;
+    width: 90%; 
+    padding: 16px;
+    width:500px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    background-color: #fff;
+    text-align: center;
+    transition: transform 0.3s;
+  }
+
+  .meal-card:hover {
+    transform: translateY(-4px);
   }
 
   .meal-name {
     font-size: 1rem;
+    font-weight: 600;
   }
 
   .meal-price {
     font-size: 1.1rem;
-  }
-
-  .meals-grid {
-    grid-template-columns: repeat(2, 1fr);
+    color: #27ae60;
   }
 }
+
 
 /* Categories Container */
 .categories-container {
