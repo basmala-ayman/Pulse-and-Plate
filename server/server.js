@@ -19,14 +19,14 @@ const MONGO_URI = process.env.MONGODB_URI;
 
 const app = express();
 
-// ✅ Configure Cloudinary
+// Configure Cloudinary
 cloudinary.config({
   cloud_name: process.env.CLOUDINARY_NAME,
   api_key: process.env.CLOUDINARY_API_KEY,
   api_secret: process.env.CLOUDINARY_API_SECRET,
 });
 
-// ✅ CORS Setup
+// CORS Setup
 const corsConfig = {
   origin: "https://pulse-and-plate.vercel.app",
   credentials: true,
@@ -34,8 +34,6 @@ const corsConfig = {
 };
 
 app.use(cors(corsConfig));
-// app.options("", cors(corsConfig));
-// app.options("*", cors(corsConfig));
 
 // Middlewarex
 app.use(express.json({ limit: '30mb' }));
@@ -54,18 +52,18 @@ app.get('/', (req, res) => {
   res.send('API is running...');
 });
 
-// ✅ MongoDB Connection
+// MongoDB Connection
 mongoose.connect(MONGO_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true
 })
   .then(() => {
-    console.log('✅ Connected to MongoDB Atlas successfully');
+    console.log('Connected to MongoDB Atlas successfully');
     app.listen(PORT, () => {
-      console.log(`🚀 Server running on port ${PORT}`);
-      console.log(`📜 Swagger docs available at /api-docs`);
+      console.log(`Server running on port ${PORT}`);
+      console.log(`Swagger docs available at /api-docs`);
     });
   })
   .catch((error) => {
-    console.error('❌ Failed to connect to MongoDB Atlas:', error.message);
+    console.error('Failed to connect to MongoDB Atlas:', error.message);
   });
