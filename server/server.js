@@ -34,9 +34,9 @@ const corsConfig = {
 };
 
 app.use(cors(corsConfig));
-app.options("*", cors(corsConfig));
+// app.options("*", cors(corsConfig));
 
-// Middleware
+// Middlewarex
 app.use(express.json({ limit: '30mb' }));
 app.use(express.urlencoded({ extended: true, limit: '30mb' }));
 
