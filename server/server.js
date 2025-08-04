@@ -26,14 +26,25 @@ cloudinary.config({
   api_secret: process.env.CLOUDINARY_API_SECRET,
 });
 
-// CORS Setup
+const allowedOrigins = [
+  "http://localhost:3000",              // local development
+  "https://pulse-and-plate.vercel.app" // production frontend
+];
+
 const corsConfig = {
-  origin: "https://pulse-and-plate.vercel.app",
+  origin: (origin, callback) => {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
   credentials: true,
   methods: ["GET", "POST", "PUT", "DELETE"],
 };
 
 app.use(cors(corsConfig));
+
 
 // Middlewarex
 app.use(express.json({ limit: '30mb' }));
