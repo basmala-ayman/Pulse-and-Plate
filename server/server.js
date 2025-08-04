@@ -2,7 +2,6 @@ const mongoose = require('mongoose');
 const express = require('express');
 const cors = require('cors');
 const dotenv = require('dotenv');
-// const cloudinary = require('cloudinary').v2;
 const { swaggerUi, swaggerSpec } = require('./swagger');
 
 const userRoutes = require('./routes/user');
@@ -18,13 +17,6 @@ const PORT = process.env.PORT || 3050;
 const MONGO_URI = process.env.MONGODB_URI;
 
 const app = express();
-
-// Configure Cloudinary
-// cloudinary.config({
-//   cloud_name: process.env.CLOUDINARY_NAME,
-//   api_key: process.env.CLOUDINARY_API_KEY,
-//   api_secret: process.env.CLOUDINARY_API_SECRET,
-// });
 
 const allowedOrigins = [
   "http://localhost:3000",              // local development
@@ -44,7 +36,6 @@ const corsConfig = {
 };
 
 app.use(cors(corsConfig));
-
 
 // Middlewarex
 app.use(express.json({ limit: '30mb' }));
