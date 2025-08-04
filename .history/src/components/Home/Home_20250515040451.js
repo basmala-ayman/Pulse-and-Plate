@@ -1,9 +1,0 @@
-import Main from '../Main/Main';
-
-export default function Home() {
-    return (
-        <div>
-            <nav></nav>
-        </div>
-    );
-}
